@@ -12,7 +12,7 @@ This project was developed as a real-world full-stack application, focusing on a
 ## 📸 Final Working Condition
 
 The project is fully functional and stable.
-The final working UI (attached as a screenshot in the submission) demonstrates:
+The final working UI demonstrates:
 
 - Dashboard layout
 - Logout functionality
@@ -20,9 +20,7 @@ The final working UI (attached as a screenshot in the submission) demonstrates:
 - Sweet listings
 - Purchase action
 - Admin restock functionality
-  <img width="1470" height="923" alt="Screenshot 2025-12-13 at 3 53 25 PM" src="https://github.com/user-attachments/assets/c4ae8f3f-4fd1-4800-b966-33bdbe460a67" />
-
-
+  
 ---
 
 ## 🚀 Features
