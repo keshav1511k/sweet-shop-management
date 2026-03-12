@@ -1,5 +1,7 @@
 # 🍬 Sweet Shop Management System
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/keshav1511k/sweet-shop-management)
+
 A full-stack Sweet Shop Management System built using React, Node.js, Express, Prisma, and SQLite.
 The application allows authenticated users to browse, search, and purchase sweets, while administrators can manage inventory by restocking items.
 
@@ -213,4 +215,3 @@ AI was used as a learning and assistance tool, not as a replacement for understa
 Keshav
 
 ---
-
