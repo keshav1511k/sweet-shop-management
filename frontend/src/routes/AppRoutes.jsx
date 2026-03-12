@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Landing from "../pages/Landing";
 import Login from "../pages/Login";
 import Sweets from "../pages/Sweets";
 
@@ -14,29 +15,32 @@ function AppRoutes() {
     };
 
     window.addEventListener("storage", checkAuth);
+    window.addEventListener("authchange", checkAuth);
     checkAuth();
 
-    return () => window.removeEventListener("storage", checkAuth);
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+      window.removeEventListener("authchange", checkAuth);
+    };
   }, []);
 
   return (
     <Routes>
+      <Route path="/" element={<Landing isLoggedIn={isLoggedIn} />} />
+
       <Route
-        path="/"
+        path="/login"
         element={
-          isLoggedIn ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
+          isLoggedIn ? <Navigate replace to="/dashboard" /> : <Login />
         }
       />
 
       <Route
-        path="/login"
-        element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
+        path="/dashboard"
+        element={isLoggedIn ? <Sweets /> : <Navigate replace to="/login" />}
       />
 
-      <Route
-        path="/dashboard"
-        element={isLoggedIn ? <Sweets /> : <Navigate to="/login" />}
-      />
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 }
