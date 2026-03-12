@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: sweet-shop-management
+    runtime: node
+    plan: starter
+    region: oregon
+    autoDeployTrigger: commit
+    buildCommand: |
+      cd frontend && npm ci && npm run build
+      cd ../backend && npm ci && npx prisma generate
+    startCommand: cd backend && npx prisma migrate deploy && npm run seed && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: file:/var/data/dev.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SEED_ADMIN_EMAIL
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: SEED_ADMIN_NAME
+        value: Sweet Shop Admin
+    disk:
+      name: sweet-shop-data
+      mountPath: /var/data
+      sizeGB: 1
