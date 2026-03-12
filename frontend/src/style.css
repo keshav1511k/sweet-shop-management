@@ -468,6 +468,24 @@ p {
   color: #b74635;
 }
 
+.auth-switch {
+  margin-top: 6px;
+  font-size: 0.96rem;
+  color: rgba(86, 53, 39, 0.82);
+}
+
+.auth-switch a,
+.gallery-credit {
+  color: #8d4c3b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch a:hover,
+.gallery-credit:hover {
+  color: #6e3729;
+}
+
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -589,7 +607,7 @@ p {
 }
 
 .gallery-card,
-.landing-story-card {
+.landing-access-card {
   overflow: hidden;
 }
 
@@ -598,26 +616,23 @@ p {
 }
 
 .gallery-copy,
-.landing-story-card {
+.landing-access-card {
   padding: 20px;
 }
 
 .gallery-copy h4,
-.landing-story-card h4 {
+.landing-access-card h4 {
   font-size: 1.5rem;
 }
 
 .gallery-copy p,
-.landing-story-card p {
+.landing-access-card p {
   margin-top: 0.8rem;
 }
 
 .gallery-credit {
   display: inline-flex;
   margin-top: 1rem;
-  color: #8d4c3b;
-  font-weight: 700;
-  text-decoration: none;
 }
 
 .story-list {

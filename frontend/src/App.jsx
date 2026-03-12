@@ -15,8 +15,8 @@ function App() {
             <div>
               <h1>Sweet Shop Management</h1>
               <p>
-                Premium storefront operations, glassmorphism visuals, and a
-                warmer first impression for every viewer.
+                Premium storefront operations, smooth customer access, and a
+                warmer first impression for every visitor.
               </p>
             </div>
           </div>
@@ -38,6 +38,14 @@ function App() {
               }
             >
               Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                `route-chip ${isActive ? "is-active" : ""}`
+              }
+            >
+              Register
             </NavLink>
             <NavLink
               to="/dashboard"

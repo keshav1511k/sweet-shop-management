@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import Sweets from "../pages/Sweets";
 
 function AppRoutes() {
@@ -32,6 +33,13 @@ function AppRoutes() {
         path="/login"
         element={
           isLoggedIn ? <Navigate replace to="/dashboard" /> : <Login />
+        }
+      />
+
+      <Route
+        path="/register"
+        element={
+          isLoggedIn ? <Navigate replace to="/dashboard" /> : <Register />
         }
       />
 

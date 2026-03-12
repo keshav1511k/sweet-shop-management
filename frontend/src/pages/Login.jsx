@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/api";
 
 function Login() {
@@ -10,9 +10,9 @@ function Login() {
   const navigate = useNavigate();
 
   const highlights = [
-    { value: "Live", label: "Inventory pulse" },
-    { value: "Fast", label: "Search and restock" },
-    { value: "Premium", label: "Viewer experience" },
+    { value: "Customer", label: "Account access" },
+    { value: "Fast", label: "Sign in flow" },
+    { value: "Live", label: "Inventory visibility" },
   ];
 
   const handleLogin = async (event) => {
@@ -39,11 +39,11 @@ function Login() {
     <section className="auth-layout">
       <div className="glass-panel auth-showcase">
         <div className="showcase-copy">
-          <span className="section-tag">Luxury Storefront Flow</span>
-          <h2>Make your sweet shop look as polished behind the scenes.</h2>
+          <span className="section-tag">Customer And Staff Access</span>
+          <h2>Sign in and continue your sweet shop journey.</h2>
           <p>
-            Inventory management, search, and stock updates now feel like a
-            premium brand experience instead of a plain admin screen.
+            Customers can browse and purchase sweets, while staff can continue
+            managing stock and keeping the catalog polished.
           </p>
         </div>
 
@@ -58,13 +58,13 @@ function Login() {
 
         <div className="showcase-ribbon">
           <div className="ribbon-card">
-            <span>Glassmorphism</span>
-            <strong>Soft depth with modern layering</strong>
+            <span>Customer logins</span>
+            <strong>Now supported directly on the site</strong>
           </div>
 
           <div className="ribbon-card">
             <span>Responsive layout</span>
-            <strong>Refined on desktop and mobile</strong>
+            <strong>Refined for desktop and mobile</strong>
           </div>
         </div>
       </div>
@@ -73,8 +73,8 @@ function Login() {
         <span className="section-tag">Secure Access</span>
         <h2>Welcome back</h2>
         <p>
-          Sign in to monitor inventory, keep the catalog irresistible, and stay
-          ahead of low-stock moments.
+          Sign in as a customer or staff member to browse sweets, purchase
+          items, or manage inventory.
         </p>
 
         <form className="auth-form" onSubmit={handleLogin}>
@@ -82,7 +82,7 @@ function Login() {
             <span>Email address</span>
             <input
               type="email"
-              placeholder="manager@sweetshop.com"
+              placeholder="you@example.com"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               autoComplete="email"
@@ -103,7 +103,8 @@ function Login() {
           </label>
 
           <p className={`form-message ${error ? "is-error" : ""}`}>
-            {error || "Use your staff credentials to enter the dashboard."}
+            {error ||
+              "Use your customer or staff credentials to enter the dashboard."}
           </p>
 
           <button
@@ -114,6 +115,10 @@ function Login() {
             {isSubmitting ? "Signing in..." : "Enter dashboard"}
           </button>
         </form>
+
+        <p className="auth-switch">
+          New customer? <Link to="/register">Create an account</Link>
+        </p>
       </div>
     </section>
   );

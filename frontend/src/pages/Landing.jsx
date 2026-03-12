@@ -5,16 +5,16 @@ const heroImage =
 
 const showcaseCards = [
   {
-    title: "Editorial storefront feel",
-    copy: "A warmer, more cinematic presentation makes the system feel premium from the first second.",
+    title: "Customer accounts",
+    copy: "Visitors can now register from the site, sign in securely, and start shopping without manual setup.",
   },
   {
-    title: "Inventory clarity",
-    copy: "Fast filtering, status cues, and stock feedback reduce friction while browsing or restocking.",
+    title: "Browse with confidence",
+    copy: "Customers see live stock and pricing, while the clean layout keeps the catalog easy to explore.",
   },
   {
-    title: "Built for trust",
-    copy: "Glass layers, strong hierarchy, and clean responsive spacing make the product feel more polished.",
+    title: "Staff and customer ready",
+    copy: "One polished experience supports both shoppers and store operators with the right tools.",
   },
 ];
 
@@ -44,35 +44,42 @@ function Landing({ isLoggedIn }) {
     <section className="landing-page">
       <div className="glass-panel landing-hero">
         <div className="landing-copy">
-          <span className="section-tag">Branded Landing Experience</span>
-          <h2>Turn your mithai management system into a storefront people remember.</h2>
+          <span className="section-tag">Sweet Shop Experience</span>
+          <h2>Discover, sign up, and shop sweets through a warmer digital storefront.</h2>
           <p>
-            This refreshed landing layer gives the project a more premium first
-            impression, sets the tone before login, and ties the full UI together
-            with curated imagery and stronger storytelling.
+            The home page now welcomes real customers, invites them to create an
+            account, and leads them into a polished login and shopping flow.
           </p>
 
           <div className="landing-actions">
-            <Link className="primary-button" to={isLoggedIn ? "/dashboard" : "/login"}>
-              {isLoggedIn ? "Open dashboard" : "Log in now"}
-            </Link>
-            <a className="ghost-button landing-anchor" href="#landing-gallery">
-              Preview the brand
-            </a>
+            {isLoggedIn ? (
+              <Link className="primary-button" to="/dashboard">
+                Open dashboard
+              </Link>
+            ) : (
+              <>
+                <Link className="primary-button" to="/register">
+                  Create customer account
+                </Link>
+                <Link className="ghost-button landing-anchor" to="/login">
+                  Log in
+                </Link>
+              </>
+            )}
           </div>
 
           <div className="landing-metrics">
             <div className="metric-card">
-              <span>Visual identity</span>
-              <strong>Stronger</strong>
+              <span>Customer access</span>
+              <strong>Live</strong>
             </div>
             <div className="metric-card">
-              <span>Experience</span>
-              <strong>Responsive</strong>
+              <span>Purchasing</span>
+              <strong>Ready</strong>
             </div>
             <div className="metric-card">
-              <span>Viewer impact</span>
-              <strong>Premium</strong>
+              <span>Store flow</span>
+              <strong>Smooth</strong>
             </div>
           </div>
         </div>
@@ -101,11 +108,11 @@ function Landing({ isLoggedIn }) {
       <section id="landing-gallery" className="landing-gallery-section">
         <div className="inventory-heading">
           <div>
-            <span className="section-tag">Curated Gallery</span>
-            <h3>Photography that supports the premium look</h3>
+            <span className="section-tag">Customer Features</span>
+            <h3>A better home page for shoppers and returning users</h3>
             <p>
-              The landing page now uses web photography to add appetite, depth,
-              and a more memorable sense of brand.
+              The site now feels customer-ready, with clear entry points for
+              registration, login, and browsing.
             </p>
           </div>
         </div>
@@ -131,28 +138,39 @@ function Landing({ isLoggedIn }) {
             </article>
           ))}
 
-          <article className="glass-panel landing-story-card">
-            <span className="section-tag">What Changed</span>
-            <h4>More than a visual skin</h4>
+          <article className="glass-panel landing-access-card">
+            <span className="section-tag">Customer Access</span>
+            <h4>Register and log in directly from the site</h4>
             <p>
-              The app now has a complete public-facing entry point, richer
-              storytelling, and a more trustworthy feel before the user even
-              reaches the dashboard.
+              New visitors no longer need a pre-created account. They can sign
+              up as customers, log in securely, and start exploring the
+              available sweets right away.
             </p>
 
             <div className="story-list">
               <div className="insight-item">
-                <span>Home route</span>
-                <strong>Public landing page</strong>
+                <span>Registration</span>
+                <strong>Customer sign-up page</strong>
               </div>
               <div className="insight-item">
-                <span>Media layer</span>
-                <strong>Curated web imagery</strong>
+                <span>Login</span>
+                <strong>Customer and staff access</strong>
               </div>
               <div className="insight-item">
-                <span>Navigation</span>
-                <strong>Clear brand shell</strong>
+                <span>Dashboard</span>
+                <strong>Browse and purchase sweets</strong>
               </div>
+            </div>
+
+            <div className="landing-actions">
+              <Link className="primary-button" to={isLoggedIn ? "/dashboard" : "/register"}>
+                {isLoggedIn ? "Go to dashboard" : "Create account"}
+              </Link>
+              {!isLoggedIn && (
+                <Link className="ghost-button landing-anchor" to="/login">
+                  Existing user login
+                </Link>
+              )}
             </div>
           </article>
         </div>
@@ -160,16 +178,16 @@ function Landing({ isLoggedIn }) {
 
       <section className="glass-panel landing-cta">
         <div>
-          <span className="section-tag">Ready To Use</span>
-          <h3>Open the refreshed experience and share it with confidence.</h3>
+          <span className="section-tag">Ready To Shop</span>
+          <h3>Customers can now sign up, log in, and start exploring sweets.</h3>
         </div>
         <p>
-          Visitors now land on a polished home page, then move naturally into a
-          refined login and dashboard flow.
+          The homepage now leads naturally into account creation, login, and the
+          shopping dashboard instead of showing developer-focused notes.
         </p>
         <div className="landing-actions">
-          <Link className="primary-button" to={isLoggedIn ? "/dashboard" : "/login"}>
-            {isLoggedIn ? "Go to dashboard" : "Start with login"}
+          <Link className="primary-button" to={isLoggedIn ? "/dashboard" : "/register"}>
+            {isLoggedIn ? "Go to dashboard" : "Start with registration"}
           </Link>
         </div>
       </section>
